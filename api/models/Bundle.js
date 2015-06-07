@@ -1,0 +1,33 @@
+/**
+ * Bundle.js
+ *
+ * @description :: TODO: You might write a short summary of how this model works and what it represents here.
+ * @docs        :: http://sailsjs.org/#!documentation/models
+ */
+
+module.exports = {
+
+  attributes: {
+    name: {
+      type: 'string',
+      required: true,
+      index: true,
+      unique: true
+    },
+    identifier: {
+      type: 'string',
+      required: true,
+      regex: /^[a-zA-Z0-9-_]+$/,
+      index: true,
+      unique: true
+    },
+    fields: {
+      collection: 'field',
+      via: 'bundle'
+    },
+    contents: {
+      collection: 'content',
+      via: 'bundle'
+    }
+  }
+};
